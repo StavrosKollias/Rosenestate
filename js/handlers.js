@@ -13,14 +13,16 @@ openmap.addEventListener("click", function(e) {
 var mobilebtn = document.getElementsByClassName("btn")[0];
 var mobileBtncontainer = document.getElementsByClassName("mobile-btn")[0];
 var navmenu = document.getElementsByClassName("nav-menu")[0];
-
+var doc = document.getElementsByTagName("html")[0];
 mobilebtn.addEventListener("click", function(e) {
    if (mobilebtn.classList.length == 1) {
       mobilebtn.classList.add("active");
       navmenu.classList.add("active");
+      doc.classList.add("mobile");
    } else {
       mobilebtn.classList.remove("active");
       navmenu.classList.remove("active");
+      doc.classList.remove("mobile");
    }
 });
 
