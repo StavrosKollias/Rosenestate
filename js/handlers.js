@@ -1,3 +1,14 @@
+//open map handler
+var openmap = document.getElementsByClassName("open-map")[0];
+var map = document.getElementsByClassName("popup-map")[0];
+openmap.addEventListener("click", function(e) {
+   if (map.classList.length == 1) {
+      map.classList.add("active");
+   } else {
+      map.classList.remove("active");
+   }
+});
+
 // mobile nav handler
 var mobilebtn = document.getElementsByClassName("btn")[0];
 var mobileBtncontainer = document.getElementsByClassName("mobile-btn")[0];

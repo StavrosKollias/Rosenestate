@@ -75,6 +75,12 @@ body {
    width: 3rem;
    height: 2rem;
    z-index: 3;
+   display: none;
+
+   @media (max-width: @desktop) {
+      display: block;
+   }
+
    .btn {
       position: absolute;
       width: 2rem;
@@ -892,11 +898,6 @@ body {
       width: 100%;
       height: 100%;
 
-      // .map {
-      //    width: 50%;
-      //    height: 80%;
-      // }
-
       .footer {
          .display-flex();
          width: 100%;
@@ -914,6 +915,85 @@ body {
          .footer__item {
             width: 11rem;
 
+            .open-map {
+               position: relative;
+               color: @white;
+               font-size: 0.85rem;
+               margin: 0;
+               transition: all 0.5s;
+               text-decoration: none;
+               font-weight: bold;
+
+               @media (max-width: @desktop) {
+                  text-align: center;
+                  padding: 0.5rem;
+                  width: 7rem;
+                  margin: auto;
+               }
+               &:hover {
+                  color: @orange;
+                  cursor: pointer;
+               }
+
+               .popup-map {
+                  .display-flex();
+                  flex-direction: column;
+                  display: none;
+                  position: absolute;
+
+                  width: 400px;
+                  height: 300px;
+                  top: -19rem;
+                  left: -10rem;
+                  background-color: @gray;
+                  z-index: 2;
+                  border: 1px solid @orange;
+                  box-shadow: 0.1rem 0.1rem 0.5rem @black;
+
+                  &:after {
+                     content: "";
+                     position: absolute;
+                     border: 10px solid @orange;
+                     border-bottom-color: transparent;
+                     border-left-color: transparent;
+                     border-right-color: transparent;
+                     top: 18.8rem;
+                     left: 12rem;
+
+                     @media (max-width: @desktop) {
+                        left: 8.5rem;
+                     }
+                  }
+
+                  &.active {
+                     display: flex;
+                  }
+
+                  i {
+                     font-size: 2rem;
+                     position: absolute;
+                     left: 0;
+                     top: 0;
+                     color: @white;
+                     transition: all 0.5s;
+
+                     &:hover {
+                        color: @orange;
+                     }
+                  }
+                  .map {
+                     width: 80%;
+                     height: 80%;
+                  }
+
+                  @media (max-width: @desktop) {
+                     top: -19rem;
+                     left: -5rem;
+                     width: 295px;
+                  }
+               }
+            }
+
             @media (max-width: @desktop) {
                width: 100%;
             }
@@ -921,6 +1001,7 @@ body {
             i {
                margin-right: 0.9rem;
             }
+
             .socia-menu {
                .display-flex();
 
@@ -1022,6 +1103,7 @@ body {
          }
       }
    }
+
    .references {
       .display-flex();
       flex-direction: row;
